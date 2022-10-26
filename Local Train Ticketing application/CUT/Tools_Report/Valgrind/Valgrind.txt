@@ -1,0 +1,16 @@
+
+  1 ==518410== Memcheck, a memory error detector
+  2 ==518410== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+  3 ==518410== Using Valgrind-3.16.1 and LibVEX; rerun with -h for copyright info
+  4 ==518410== Command: ./train
+  5 ==518410==
+  6 ==518410==
+  7 ==518410== HEAP SUMMARY:
+  8 ==518410==     in use at exit: 0 bytes in 0 blocks
+  9 ==518410==   total heap usage: 4 allocs, 4 frees, 2,992 bytes allocated
+ 10 ==518410==
+ 11 ==518410== All heap blocks were freed -- no leaks are possible
+ 12 ==518410==
+ 13 ==518410== For lists of detected and suppressed errors, rerun with: -s
+ 14 ==518410== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+

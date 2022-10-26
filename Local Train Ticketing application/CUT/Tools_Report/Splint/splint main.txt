@@ -1,0 +1,51 @@
+  1 Splint 3.1.2 --- 21 Feb 2021
+  2
+  3 train_main.c: (in function main)
+  4 train_main.c:7:9: Return value (type int) ignored: userfile_to_list()
+  5   Result returned by function call is not used. If this is intended, can cast
+  6   result to (void) to eliminate message. (Use -retvalint to inhibit warning)
+  7 train_main.c:8:9: Return value (type int) ignored: trainfile_to_list1()
+  8 train_main.c:17:17: Return value (type int) ignored: scanf("%d", &ch2)
+  9 train_main.c:20:32: Return value (type int) ignored: admin()
+ 10 train_main.c:22:32: Return value (type int) ignored: user()
+ 11 train_main.c:28:9: Return value (type int) ignored: trainlist_to_file1()
+ 12 train_main.c:29:9: Return value (type int) ignored: userlist_to_file()
+ 13 train_main.c: (in function admin)
+ 14 train_main.c:37:15: Test expression for while not boolean, type int: 1
+ 15   Test expression type is not boolean or int. (Use -predboolint to inhibit
+ 16   warning)
+ 17 train_main.c:40:17: Return value (type int) ignored: scanf("%s", pswd)
+ 18 train_main.c:61:17: Return value (type int) ignored: scanf("%d", &ch7)
+ 19 train_main.c:64:32: Return value (type int) ignored: user_maintain()
+ 20 train_main.c:66:32: Return value (type int) ignored: train()
+ 21 train_main.c:68:32: Return value (type int) ignored: reports()
+ 22 train_main.c: (in function user_maintain)
+ 23 train_main.c:87:17: Return value (type int) ignored: scanf("%d", &ch)
+ 24 train_main.c:90:32: Return value (type int) ignored: register_data()
+ 25 train_main.c:92:32: Return value (type int) ignored: edit_data()
+ 26 train_main.c:94:32: Return value (type int) ignored: delete_data()
+ 27 train_main.c:96:32: Return value (type int) ignored: view_data()
+ 28 train_main.c: (in function train)
+ 29 train_main.c:114:17: Return value (type int) ignored: scanf("%d", &ch1)
+ 30 train_main.c:117:32: Return value (type int) ignored: add_data1()
+ 31 train_main.c:119:32: Return value (type int) ignored: edit_data1()
+ 32 train_main.c:121:32: Return value (type int) ignored: delete_data1()
+ 33 train_main.c:123:32: Return value (type int) ignored: view_data1()
+ 34 train_main.c: (in function reports)
+ 35 train_main.c:142:17: Return value (type int) ignored: scanf("%d", &ch8)
+ 36 train_main.c:145:32: Return value (type int) ignored: mreport()
+ 37 train_main.c:147:32: Return value (type int) ignored: min_bal_data()
+ 38 train_main.c: (in function user)
+ 39 train_main.c:166:17: Return value (type int) ignored: scanf("%d", &ch5)
+ 40 train_main.c:169:32: Return value (type int) ignored: register_data()
+ 41 train_main.c:171:32: Return value (type int) ignored: edit_data()
+ 42 train_main.c:173:32: Return value (type int) ignored: book_ticket()
+ 43 train_main.c:175:32: Return value (type int) ignored: mreport()  Top
+ 44 train_main.c:33:6: Variable exported but not used outside train_main:
+ 45                       admin_pswd
+ 46   A declaration is exported, but not used outside this module. Declaration can
+ 47   use static qualifier. (Use -exportlocal to inhibit warning)
+ 48
+ 49 Finished checking --- 32 code warnings
+ 50
+

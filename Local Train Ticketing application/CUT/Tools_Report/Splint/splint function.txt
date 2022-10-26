@@ -1,0 +1,167 @@
+  1 Splint 3.1.2 --- 21 Feb 2021
+  2
+  3 train_func.c: (in function add_data1)
+  4 train_func.c:17:37: Function returns with non-null global new1 referencing null
+  5                        storage
+  6   A global variable does not satisfy its annotations when control is
+  7   transferred. (Use -globstate to inhibit warning)
+  8    train_func.c:14:18: Storage new1 may become null
+  9 train_func.c:19:15: Test expression for while not boolean, type int: 1
+ 10   Test expression type is not boolean or int. (Use -predboolint to inhibit
+ 11   warning)
+ 12 train_func.c:22:17: Return value (type int) ignored: scanf("%d", &new...
+ 13   Result returned by function call is not used. If this is intended, can cast
+ 14   result to (void) to eliminate message. (Use -retvalint to inhibit warning)
+ 15 train_func.c:30:41: Left operand of && is non-boolean (tr *):
+ 16                        (ptr1) && ptr1->trno != new1->trno
+ 17   The operand of a boolean operator is not a boolean. Use +ptrnegate to allow !
+ 18   to be used on pointers. (Use -boolops to inhibit warning)
+ 19 train_func.c:30:74: Only storage ptr1->next assigned to unqualified (in post
+ 20                        loop increment): ptr1 = ptr1->next
+ 21   The only reference to this storage is transferred to another reference (e.g.,
+ 22   by returning it) that does not have the only annotation. This may lead to a
+ 23   memory leak, since the new reference is not necessarily released. (Use
+ 24   -onlytrans to inhibit warning)
+ 25 train_func.c:41:15: Test expression for while not boolean, type int: 1
+ 26 train_func.c:44:17: Return value (type int) ignored: scanf("%s", new1...
+ 27 train_func.c:46:20: Operands of > have incompatible types (size_t, int):
+ 28                        strlen(new1->name) > max_len
+ 29   To allow arbitrary integral types to match any integral type, use
+ 30   +matchanyintegral.
+ 31 train_func.c:51:20: Test expression for if not boolean, type int:
+ 32                        isalpha_validation(new1->name)
+ 33 train_func.c:59:15: Test expression for while not boolean, type int: 1
+ 34 train_func.c:62:17: Return value (type int) ignored: scanf("%s", new1...
+ 35 train_func.c:64:20: Operands of > have incompatible types (size_t, int):
+ 36                        strlen(new1->src) > max_len
+ 37 train_func.c:69:20: Test expression for if not boolean, type int:
+ 38                        isalpha_validation(new1->src)
+ 39 train_func.c:76:15: Test expression for while not boolean, type int: 1
+ 40 train_func.c:79:17: Return value (type int) ignored: scanf("%s", new1...
+ 41 train_func.c:81:20: Operands of > have incompatible types (size_t, int):
+ 42                        strlen(new1->dest) > max_len
+ 43 train_func.c:86:20: Test expression for if not boolean, type int:
+ 44                        isalpha_validation(new1->dest)
+ 45 train_func.c:94:15: Test expression for while not boolean, type int: 1
+ 46 train_func.c:97:17: Return value (type int) ignored: scanf("%f", &new...
+ 47 train_func.c:106:15: Test expression for while not boolean, type int: 1
+ 48 train_func.c:109:17: Return value (type int) ignored: scanf("%f", &new...
+ 49 train_func.c:118:15: Test expression for while not boolean, type int: 1
+ 50 train_func.c:121:17: Return value (type int) ignored: scanf("%lf", &ne...
+ 51 train_func.c:138:17: Implicitly only storage new1->next (type struct train *)
+ 52                         not released before assignment: new1->next = start1
+ 53   A memory leak has been detected. Only-qualified storage is not released
+ 54   before the last reference to it is lost. (Use -mustfreeonly to inhibit
+ 55   warning)
+ 56 train_func.c:138:17: Unqualified storage start1 assigned to implicitly only:
+ 57                         new1->next = start1
+ 58   Unqualified storage is transferred in an inconsistent way. (Use
+ 59   -unqualifiedtrans to inhibit warning)
+ 60 train_func.c:143:33: Left operand of && is non-boolean (tr *):
+ 61                         (ptr1) && ptr1->trno < new1->trno
+ 62 train_func.c:143:76: Only storage ptr1->next assigned to unqualified (in post
+ 63                         loop increment): ptr1 = ptr1->next
+ 64 train_func.c:144:17: Implicitly only storage prev1->next (type struct train *)
+ 65                         not released before assignment: prev1->next = new1
+ 66 train_func.c:145:17: Unqualified storage ptr1 assigned to implicitly only:
+ 67                         new1->next = ptr1
+ 68 train_func.c:146:9: Variable start1 is kept in false branch, but not kept in
+ 69                        true branch.
+ 70   The state of a variable is different depending on which branch is taken. This
+ 71   means no annotation can sensibly be applied to the storage. (Use -branchstate
+ 72   to inhibit warning)
+ 73    train_func.c:146:9: in false branch:
+ 74    train_func.c:145:17: Storage start1 becomes kept
+ 75    train_func.c:146:9: in true branch:
+ 76    train_func.c:139:17: Storage start1 becomes owned
+ 77 train_func.c:146:9: Variable prev1 is kept in false branch, but not kept in
+ 78                        true branch.
+ 79    train_func.c:146:9: in false branch:
+ 80    train_func.c:145:17: Storage prev1 becomes kept
+ 81 train_func.c:147:29: Function returns with global new1 referencing kept storage
+ 82    train_func.c:144:17: Storage new1 becomes kept
+ 83 train_func.c:147:29: Function returns with global ptr1 referencing kept storage
+ 84    train_func.c:146:9: Storage ptr1 becomes kept
+ 85 train_func.c: (in function view_data1)
+ 86 train_func.c:158:32: Only storage ptr1->next assigned to unqualified (in post
+ 87                         loop increment): ptr1 = ptr1->next
+ 88 train_func.c: (in function edit_data1)
+ 89 train_func.c:169:15: Test expression for while not boolean, type int: 1
+ 90 train_func.c:172:17: Return value (type int) ignored: scanf("%d", &trtrno)
+ 91 train_func.c:180:47: Variable trtrno used before definition
+ 92   An rvalue is used that may not be initialized to a value on some execution
+ 93   path. (Use -usedef to inhibit warning)
+ 94 train_func.c:180:25: Left operand of && is non-boolean (tr *):
+ 95                         (ptr1) && ptr1->trno != trtrno
+ 96 train_func.c:180:54: Only storage ptr1->next assigned to unqualified (in post
+ 97                         loop increment): ptr1 = ptr1->next
+ 98 train_func.c:187:15: Test expression for while not boolean, type int: 1
+ 99 train_func.c:190:17: Return value (type int) ignored: scanf("%s", ptr1...
+100 train_func.c:192:20: Operands of > have incompatible types (size_t, int):
+101                         strlen(ptr1->name) > max_len
+102 train_func.c:197:20: Test expression for if not boolean, type int:
+103                         isalpha_validation(ptr1->name)
+104 train_func.c:205:15: Test expression for while not boolean, type int: 1
+105 train_func.c:208:17: Return value (type int) ignored: scanf("%s", ptr1...
+106 train_func.c:210:20: Operands of > have incompatible types (size_t, int):
+107                         strlen(ptr1->src) > max_len
+108 train_func.c:215:20: Test expression for if not boolean, type int:
+109                         isalpha_validation(ptr1->src)
+110 train_func.c:222:15: Test expression for while not boolean, type int: 1
+111 train_func.c:225:17: Return value (type int) ignored: scanf("%s", ptr1...
+112 train_func.c:227:20: Operands of > have incompatible types (size_t, int):
+113                         strlen(ptr1->dest) > max_len
+114 train_func.c:232:20: Test expression for if not boolean, type int:
+115                         isalpha_validation(ptr1->dest)
+116 train_func.c:239:15: Test expression for while not boolean, type int: 1
+117 train_func.c:242:17: Return value (type int) ignored: scanf("%f", &ptr...
+118 train_func.c:251:15: Test expression for while not boolean, type int: 1
+119 train_func.c:254:17: Return value (type int) ignored: scanf("%f", &ptr...
+120 train_func.c:263:15: Test expression for while not boolean, type int: 1
+121 train_func.c:266:17: Return value (type int) ignored: scanf("%lf", &pt...
+122 train_func.c: (in function delete_data1)
+123 train_func.c:281:15: Test expression for while not boolean, type int: 1
+124 train_func.c:284:17: Return value (type int) ignored: scanf("%d", &mtrno)
+125 train_func.c:292:12: Variable mtrno used before definition
+126 train_func.c:295:17: Only storage start1->next assigned to unqualified:
+127                         start1 = start1->next          
+128 train_func.c:296:22: Only storage ptr1->next (type struct train *) derived from
+129                         released storage is not released (memory leak): ptr1
+130   A storage leak due to incomplete deallocation of a structure or deep pointer
+131   is suspected. Unshared storage that is reachable from a reference that is
+132   being deallocated has not yet been deallocated. Splint assumes when an object
+133   is passed as an out only void pointer that the outer object will be
+134   deallocated, but the inner objects will not. (Use -compdestroy to inhibit
+135   warning)
+136 train_func.c:296:22: Unqualified storage ptr1 passed as only param: free (ptr1)
+137    train_func.c:146:9: Storage ptr1 becomes kept
+138 train_func.c:300:33: Left operand of && is non-boolean (tr *):
+139                         (ptr1) && ptr1->trno != mtrno
+140 train_func.c:300:72: Only storage ptr1->next assigned to unqualified (in post
+141                         loop increment): ptr1 = ptr1->next
+142 train_func.c:306:17: Implicitly only storage prev1->next (type struct train *)
+143     not released before assignment: prev1->next = ptr1->next
+144 train_func.c:307:22: Kept storage ptr1 passed as only param: free (ptr1)
+145   storage is transferred to a non-temporary reference after being passed as
+146   keep parameter. The storage may be released or new aliases created. (Use
+147   -kepttrans to inhibit warning)
+148    train_func.c:306:17: Storage ptr1 becomes kept
+149 train_func.c:308:9: Variable start1 is released in false branch, but live in
+150                        true branch.
+151    train_func.c:308:9: in false branch:
+152    train_func.c:307:22: Storage start1 released
+153    train_func.c:308:9: in true branch:
+154    train_func.c:295:17: Storage start1 defined
+155 train_func.c:309:29: Function returns with global start1 referencing released
+156                         storage
+157    train_func.c:307:22: Storage start1 released
+158 train_func.c:309:29: Function returns with global ptr1 referencing released
+159                         storage
+160    train_func.c:307:22: Storage ptr1 released
+161 train_func.c:309:29: Function returns with global prev1 referencing released
+162                         storage
+163    train_func.c:307:22: Storage prev1 released
+164 train_func.c:314:17: Parse Error. (For help on parse errors, see splint -help
+165                         parseerrors.)
+166 *** Cannot continue.
+167
