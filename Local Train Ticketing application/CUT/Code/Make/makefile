@@ -1,10 +1,9 @@
-train:train_main.o train_func.o
-	gcc -o train train_main.o train_func.o
-train_main.o:train_main.c
-	gcc -c train_main.c
-train_func.o:train_func.c
-	gcc -c train_func.c
+train: main.o func.o
+	gcc -o ../bin/train  ../src/main.c  ../src/func.c
+main.o: ../src/main.c
+	gcc -c  ../src/main.c
+func.o: ../src/func.c
+	gcc -c  ../src/func.c
 clean:
 	rm *.o
-
 
