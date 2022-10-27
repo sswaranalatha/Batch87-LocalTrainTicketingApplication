@@ -146,7 +146,6 @@ int add_data1()
         }
         return EXIT_SUCCESS;
 }
-
 int view_data1()
 {
         if(!start1)
@@ -154,15 +153,15 @@ int view_data1()
                 printf("\nEMPTY LIST");
                 return EXIT_FAILURE;
         }
-        printf("\nTRAIN_NO    TRAIN_NAME    SOURCE    DESTINATION    DISTANCE    CAPACITY    FARE   TOTAL_BOOKINGS");
+        printf("\nTRAIN_NO   TRAIN_NAME   SOURCE   DESTINATION    DISTANCE   CAPACITY        FARE        TOTAL_BOOKINGS");
+        printf("\n");
         for(ptr1=start1;(ptr1);ptr1=ptr1->next)
         {
-                printf("\n%d----%s----%s----%s----%fkm----%f----%lfper_km----%d\n",ptr1->trno,ptr1->name,ptr1->src,ptr1->dest,ptr1->dist,ptr1->capacity,ptr1->fare,ptr1->ctr);
+                printf("\n   %d           %s           %s         %s       %fkm   %f    %lfper_km       %d\n",ptr1->trno,ptr1->name,ptr1->src,ptr1->dest,ptr1->dist,ptr1->capacity,ptr1->fare,ptr1->ctr);
         }
         printf("\n");
         return EXIT_SUCCESS;
 }
-
 int  edit_data1()
 {
         int trtrno;
@@ -460,7 +459,6 @@ int register_data()
         }
         return EXIT_SUCCESS;
 }
-
 int view_data()
 {
         if(!start)
@@ -469,14 +467,14 @@ int view_data()
                 return EXIT_FAILURE;
         }
         printf("\nAADHAR_NO       USER_NAME      PASSWORD      PHONE_NUMBER      GENDER      DEPOSIT");
+        printf("\n");
         for(ptr=start;(ptr);ptr=ptr->next)
         {
-                printf("\n   %d      %s       %s      %s      %s       %lu\n",ptr->aadno,ptr->name,ptr->pswd,ptr->phno,ptr->gender,ptr->deposit);
+                printf("\n  %d         %s        %s       %s        %s         %lu\n",ptr->aadno,ptr->name,ptr->pswd,ptr->phno,ptr->gender,ptr->deposit);
         }
         printf("\n");
         return EXIT_SUCCESS;
 }
-
 int  edit_data()
 {
         int  uaadno;
